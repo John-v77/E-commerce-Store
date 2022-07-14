@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils.js";
+import { Link } from "react-router-dom";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
@@ -96,6 +97,13 @@ const SignUpForm = (props) => {
         />
 
         <Button>Sign Up</Button>
+
+        <div className="need-to-sign-in">
+          <p>Do you have an account?</p>
+          <Link className="nav-link" to="/auth">
+            <b> Sign in! </b>
+          </Link>
+        </div>
       </form>
     </div>
   );
