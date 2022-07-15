@@ -1,4 +1,3 @@
-import "./sign-in-form.style.scss";
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
@@ -7,8 +6,11 @@ import {
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
+import "./sign-in-form.style.scss";
 
 const defaultFormFields = {
   email: "",
@@ -32,7 +34,7 @@ function SignInForm(props) {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
