@@ -5,13 +5,19 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import App from "./App";
 import { UserProvider } from "./components/context/user.context";
+import { ProductsProvider } from "./components/context/product.context";
 import reportWebVitals from "./reportWebVitals";
+import { CartProvider } from "./components/context/cart.context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+   <BrowserRouter>
       <UserProvider>
-        <App />
+        {/* <ProductsProvider> */}
+        <CartProvider>
+          <App />
+        </CartProvider>
+        {/* </ProductsProvider> */}
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
