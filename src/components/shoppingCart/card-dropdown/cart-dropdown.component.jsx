@@ -1,5 +1,5 @@
 
-import Button from '../button/button.component'
+import Button from '../../button/button.component'
 import './cart-dropdown.style.scss'
 
 const CartDropdown = () => {

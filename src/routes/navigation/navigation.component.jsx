@@ -6,8 +6,8 @@ import "./navigation.styles.scss";
 import { UserContext } from "../../components/context/user.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import CartDropdown from "../../components/card-dropdown/cart-dropdown.component";
-import CardIcon from "../../components/card-icon/card-icon.component";
+import CartDropdown from "../../components/shoppingCart/card-dropdown/cart-dropdown.component";
+import CartIcon from "../../components/shoppingCart/cart-icon/cart-icon.component";
 import { CartContext } from "../../components/context/cart.context";
 
 const Navigation = (props) => {
@@ -34,7 +34,7 @@ const Navigation = (props) => {
               SIGN IN
             </Link>
           )}
-          <CardIcon />
+          <CartIcon />
         </div>
         {isCartOpen && <CartDropdown />}
       </div>
