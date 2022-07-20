@@ -3,8 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./routes/navigation/navigation.component.jsx";
 import Authentication from "./routes/navigation/authentication/authentication.component.jsx";
 import Shop from "./routes/shop/shop.component";
+import Checkout from "./routes/navigation/checkout/checkout.component";
 
 const App = () => {
+  
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
@@ -12,6 +14,7 @@ const App = () => {
         <Route path="shop" element={<Shop />} />
         <Route path="auth" element={<Authentication />} />
         <Route path="register" element={<Authentication not_registered />} />
+        <Route path="checkout" element={<Checkout />} />
         {/* /home/shop */}
       </Route>
     </Routes>

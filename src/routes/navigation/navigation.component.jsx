@@ -6,7 +6,7 @@ import "./navigation.styles.scss";
 import { UserContext } from "../../components/context/user.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import CartDropdown from "../../components/shoppingCart/card-dropdown/cart-dropdown.component";
+import CartDropdown from "../../components/shoppingCart/cart-dropdown/cart-dropdown.component";
 import CartIcon from "../../components/shoppingCart/cart-icon/cart-icon.component";
 import { CartContext } from "../../components/context/cart.context";
 
