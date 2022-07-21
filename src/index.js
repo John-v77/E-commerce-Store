@@ -8,17 +8,17 @@ import { UserProvider } from "./components/context/user.context";
 
 import reportWebVitals from "./reportWebVitals";
 import { CartProvider } from "./components/context/cart.context";
-import { ProductsProvider } from "./components/context/products.context";
+import { CategoriesProvider } from "./components/context/categories.context";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ProductsProvider>
+        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </ProductsProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
