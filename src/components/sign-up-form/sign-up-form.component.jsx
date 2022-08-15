@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils.js";
 import { Link } from "react-router-dom";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 import "./sign-up-form.style.scss";
-import { UserContext } from "../context/user.context.jsx";
 const SignUpForm = (props) => {
   const defaultformFields = {
     displayName: "",
@@ -17,8 +16,6 @@ const SignUpForm = (props) => {
   //set form fields
   const [formFields, setFormFields] = useState(defaultformFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const handeSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +34,7 @@ const SignUpForm = (props) => {
         password
       );
 
-      setCurrentUser(user);
+      // setCurrentUser(user);
     } catch (error) {
       console.log("user creation error", error);
     }

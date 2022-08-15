@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { CategoriesContext } from "../../components/context/categories.context";
 import ProductCard from "../../components/product-card/product-card.component";
 import { selectCategoriesMap } from "../../store/categories/category.selectors";
 import "./category.style.scss";

@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import reportWebVitals from "./reportWebVitals";
 import { CartProvider } from "./components/context/cart.context";
-import { CategoriesProvider } from "./components/context/categories.context";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,11 +16,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </CategoriesProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
