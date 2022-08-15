@@ -1,14 +1,18 @@
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import CategoryPreview from "../../components/category-preview/category-preview.component";
 
 import { CategoriesContext } from "../../components/context/categories.context";
+import { selectCategoriesMap } from "../../store/categories/category.selectors";
+
 
 const CategoriesPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap)
   const listOfCategories = Object.keys(categoriesMap);
   // transforms the object into a list of keys
 
   const renderCategoriesMap = () => {
+
     return listOfCategories.map((title) => {
       const products = categoriesMap[title];
 
