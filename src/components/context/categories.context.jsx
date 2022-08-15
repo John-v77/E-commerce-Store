@@ -7,7 +7,7 @@ export const CategoriesContext = createContext({
 });
 
 export const CategoriesProvider = ({ children }) => {
-  const [categoriesMap, setCategoriesMap] = useState({});
+  const [categoriesMap, setCategories] = useState({});
 
   useEffect(() => {
     // in useEffect is important to define a firebase function in a
@@ -16,7 +16,7 @@ export const CategoriesProvider = ({ children }) => {
     //# 1
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
-      setCategoriesMap(categoryMap);
+      setCategories(categoryMap);
     };
 
     // #2
