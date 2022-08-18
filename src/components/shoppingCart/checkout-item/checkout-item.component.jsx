@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/cart.context'
 import './checkout-item.style.scss'
+
+
 const CheckoutItem = ({ cartItem }) => {
     const { deleteItemFromCart, addItemToCart, removeItemFromCart } = useContext(CartContext)
     const { name, imageUrl, price, quantity } = cartItem
