@@ -18,24 +18,24 @@ const addCartItem = (cartItems, productToAdd) => {
     return [...cartItems, { ...productToAdd, quantity: 1 }];
   };
   
-//   const removeCartItem = (cartItems, cartItemToRemove) => {
-//     // find the cart item to remove
-//     const existingCartItem = cartItems.find(
-//       (cartItem) => cartItem.id === cartItemToRemove.id
-//     );
+  const removeCartItem = (cartItems, cartItemToRemove) => {
+    // find the cart item to remove
+    const existingCartItem = cartItems.find(
+      (cartItem) => cartItem.id === cartItemToRemove.id
+    );
   
-//     // check if quantity is equal to 1, if it is remove that item from the cart
-//     if (existingCartItem.quantity === 1) {
-//       return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
-//     }
+    // check if quantity is equal to 1, if it is remove that item from the cart
+    if (existingCartItem.quantity === 1) {
+      return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
+    }
   
-//     // return back cartitems with matching cart item with reduced quantity
-//     return cartItems.map((cartItem) =>
-//       cartItem.id === cartItemToRemove.id
-//         ? { ...cartItem, quantity: cartItem.quantity - 1 }
-//         : cartItem
-//     );
-//   };
+    // return back cartitems with matching cart item with reduced quantity
+    return cartItems.map((cartItem) =>
+      cartItem.id === cartItemToRemove.id
+        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
+    );
+  };
 
 
 const clearCartItem = (cartItems, cartItemToClear) =>
@@ -51,7 +51,7 @@ export const addItemToCart = (cartItems, productToAdd) => {
 }
 
 export const removeItemFromCart = (cartItems, productToRemove) => {
-    const newCartItems = removeItemFromCart(cartItems, productToRemove)
+    const newCartItems = removeCartItem(cartItems, productToRemove)
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems)
 }
 
