@@ -13,7 +13,6 @@ import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component.jsx";
 import { setCurrentUser } from "./store/user/user.actions";
 import { useDispatch } from "react-redux";
-import { store } from "./store/store";
 
 const App = () => {
   const dispatch = useDispatch();
