@@ -1,28 +1,27 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import "./index.scss";
 import App from "./App";
-import { UserProvider } from "./components/context/user.context";
-
+import { Provider } from "react-redux";
+import { store, persistor } from "./store/store";
 import reportWebVitals from "./reportWebVitals";
-import { CartProvider } from "./components/context/cart.context";
-import { CategoriesProvider } from "./components/context/categories.context";
+import { PersistGate } from "redux-persist/lib/integration/react";
 
-ReactDOM.render(
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <CategoriesProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </CategoriesProvider>
-      </UserProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+              <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
