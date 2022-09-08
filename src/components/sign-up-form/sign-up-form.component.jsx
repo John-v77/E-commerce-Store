@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils.js";
-import { Link } from "react-router-dom";
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import { useState } from 'react';
+import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils.js';
+import { Link } from 'react-router-dom';
+import FormInput from '../form-input/form-input.component';
+import Button from '../button/button.component';
 
-import "./sign-up-form.style.scss";
+import './sign-up-form.style.scss';
 const SignUpForm = (props) => {
   const defaultformFields = {
-    displayName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   };
 
   //set form fields
@@ -22,7 +22,7 @@ const SignUpForm = (props) => {
 
     //check if passwords match
     if (password !== confirmPassword) {
-      alert("passwords do not match");
+      alert('passwords do not match');
       return;
     }
 
@@ -36,7 +36,7 @@ const SignUpForm = (props) => {
 
       // setCurrentUser(user);
     } catch (error) {
-      console.log("user creation error", error);
+      console.log('user creation error', error);
     }
   };
 
@@ -47,49 +47,49 @@ const SignUpForm = (props) => {
   };
 
   return (
-    <div className="sign-up-container">
+    <div className='sign-up-container'>
       <h2> Dont' have an account? </h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handeSubmit}>
         <FormInput
-          label="Display Name"
+          label='Display Name'
           inputOptions={{
-            type: "text",
+            type: 'text',
             onChange: handleChange,
-            name: "displayName",
+            name: 'displayName',
             value: displayName,
             required: true,
           }}
         />
 
         <FormInput
-          label="Email"
+          label='Email'
           inputOptions={{
-            type: "email",
+            type: 'email',
             onChange: handleChange,
-            name: "email",
+            name: 'email',
             value: email,
             required: true,
           }}
         />
 
         <FormInput
-          label="Password"
+          label='Password'
           inputOptions={{
-            type: "password",
+            type: 'password',
             onChange: handleChange,
-            name: "password",
+            name: 'password',
             value: password,
             required: true,
           }}
         />
 
         <FormInput
-          label="Confirm Password"
+          label='Confirm Password'
           inputOptions={{
-            type: "password",
+            type: 'password',
             onChange: handleChange,
-            name: "confirmPassword",
+            name: 'confirmPassword',
             value: confirmPassword,
             required: true,
           }}
@@ -97,9 +97,9 @@ const SignUpForm = (props) => {
 
         <Button>Sign Up</Button>
 
-        <div className="need-to-sign-in">
+        <div className='need-to-sign-in'>
           <p>Do you have an account?</p>
-          <Link className="nav-link" to="/auth">
+          <Link className='nav-link' to='/auth'>
             <b> Sign in! </b>
           </Link>
         </div>
