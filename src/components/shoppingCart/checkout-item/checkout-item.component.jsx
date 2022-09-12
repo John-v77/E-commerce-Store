@@ -1,39 +1,50 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { selectCartItems } from '../../../store/cart/cart.selector'
-import { addItemToCart, clearItemFromCart, removeItemFromCart } from '../../../store/cart/cart.actions'
-import './checkout-item.style.scss'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCartItems } from '../../../store/cart/cart.selector';
+import {
+  addItemToCart,
+  clearItemFromCart,
+  removeItemFromCart,
+} from '../../../store/cart/cart.actions';
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  Name,
+  Quantity,
+  Price,
+  Arrow,
+  Value,
+  RemoveButton,
+} from './checkout-item.style.jsx';
 
 const CheckoutItem = ({ cartItem }) => {
-    const dispatch = useDispatch()
-    const cartItems = useSelector(selectCartItems)
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
-    const { name, imageUrl, price, quantity } = cartItem
+  const { name, imageUrl, price, quantity } = cartItem;
 
+  const clearItemHandler = () =>
+    dispatch(clearItemFromCart(cartItems, cartItem));
+  const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const removeItemHandler = () =>
+    dispatch(removeItemFromCart(cartItems, cartItem));
 
+  return (
+    <CheckoutItemContainer>
+      <ImageContainer>
+        <img src={imageUrl} alt={`${name}`} />
+      </ImageContainer>
 
+      <Name>{name}</Name>
+      <Quantity>
+        <Arrow onClick={removeItemHandler}>&#10216;</Arrow>
+        <Value>{quantity}</Value>
+        <Arrow onClick={addItemHandler}>&#10217;</Arrow>
+      </Quantity>
+      <Price>${price}</Price>
 
-    const clearItemHandler = () => dispatch(clearItemFromCart(cartItems, cartItem))
-    const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem))
-    const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem))
+      <RemoveButton onClick={clearItemHandler}>&#10006;</RemoveButton>
+    </CheckoutItemContainer>
+  );
+};
 
-    return (
-        < div className="checkout-item-container" >
-            <div className='image-container'>
-                <img src={imageUrl} alt={`${name}`} />
-            </div>
-
-            <span className='name'>{name}</span>
-            <span className='quantity'>
-                <div className='arrow' onClick={removeItemHandler} >&#10216;</div>
-                <span className='value' >{quantity}</span>
-                <div className='arrow' onClick={addItemHandler}  >&#10217;</div>
-            </span>
-            <span className='price'>{price}</span>
-
-            <div onClick={clearItemHandler} className='remove-button'>&#10006;</div>
-        </div >
-    )
-}
-
-export default CheckoutItem
+export default CheckoutItem;
