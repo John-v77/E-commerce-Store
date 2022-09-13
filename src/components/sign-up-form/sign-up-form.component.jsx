@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
-import './sign-up-form.style.scss';
+import { SignUpContainer, NeedToSignIn } from './sign-up-form.style.jsx';
+
 const SignUpForm = (props) => {
   const defaultformFields = {
     displayName: '',
@@ -47,7 +48,7 @@ const SignUpForm = (props) => {
   };
 
   return (
-    <div className='sign-up-container'>
+    <SignUpContainer>
       <h2> Dont' have an account? </h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handeSubmit}>
@@ -97,14 +98,14 @@ const SignUpForm = (props) => {
 
         <Button>Sign Up</Button>
 
-        <div className='need-to-sign-in'>
+        <NeedToSignIn>
           <p>Do you have an account?</p>
           <Link className='nav-link' to='/auth'>
             <b> Sign in! </b>
           </Link>
-        </div>
+        </NeedToSignIn>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
