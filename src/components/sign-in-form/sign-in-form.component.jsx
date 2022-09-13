@@ -10,7 +10,11 @@ import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
-import './sign-in-form.style.scss';
+import {
+  ButtonsContainer,
+  NeedToSignUp,
+  SignInContainer,
+} from './sign-in-form.style.jsx';
 
 const defaultFormFields = {
   email: '',
@@ -56,7 +60,7 @@ function SignInForm(props) {
   };
 
   return (
-    <div className='sign-in-container'>
+    <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -81,7 +85,7 @@ function SignInForm(props) {
             required: true,
           }}
         />
-        <div className='buttons-container'>
+        <ButtonsContainer>
           <Button type='submit'>Sign In</Button>
           <Button
             type='button'
@@ -90,15 +94,15 @@ function SignInForm(props) {
           >
             Google sign In
           </Button>
-        </div>
-        <div className='need-to-sign-up'>
+        </ButtonsContainer>
+        <NeedToSignUp>
           <p>Don't have an account?</p>
           <Link className='nav-link' to='/register'>
             <b> Sign up! </b>
           </Link>
-        </div>
+        </NeedToSignUp>
       </form>
-    </div>
+    </SignInContainer>
   );
 }
 
