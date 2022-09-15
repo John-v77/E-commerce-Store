@@ -12,6 +12,8 @@ import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./stripe/stripe.utils";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const test = "for Git Hub commits"
+
 
 root.render(
   <React.StrictMode>
