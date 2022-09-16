@@ -4,8 +4,5 @@ import { userSagas } from './user/user.saga';
 
 export function* rootSaga() {
   console.log('rootData is Called');
-  yield all([
-    // call(fetchCategoriesSaga),
-    call(userSagas),
-  ]);
+  yield all([call(fetchCategoriesSaga), call(userSagas)]);
 }
