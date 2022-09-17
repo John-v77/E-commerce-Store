@@ -4,8 +4,6 @@ require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-console.log(stripe, 'step 1 - stripe');
-
 exports.handler = async (event) => {
   try {
     // $100.00 => 10000
