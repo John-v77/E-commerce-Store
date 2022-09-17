@@ -17,5 +17,14 @@ export const emailSignInStart = () =>
 export const signInSuccess = (user) =>
   createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user);
 
-export const signInFailure = (error) =>
+export const signInFailed = (error) =>
   createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, error);
+
+export const signOutStart = () =>
+  createAction(USER_ACTION_TYPES.SIGN_OUT_START);
+
+export const signOutSuccess = () =>
+  createAction(USER_ACTION_TYPES.SIGN_OUT_SUCCESS);
+
+export const signOutFailed = (error) =>
+  createAction(USER_ACTION_TYPES.SIGN_OUT_FAILURE, error);
