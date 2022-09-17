@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import { signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -12,7 +11,10 @@ import {
   NeedToSignUp,
   SignInContainer,
 } from './sign-in-form.style.jsx';
-import { googleSignInStart } from '../../store/user/user.actions';
+import {
+  emailSignInStart,
+  googleSignInStart,
+} from '../../store/user/user.actions';
 
 const defaultFormFields = {
   email: '',
@@ -23,7 +25,6 @@ function SignInForm(props) {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -34,13 +35,8 @@ function SignInForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
       if (
