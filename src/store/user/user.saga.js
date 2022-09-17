@@ -74,5 +74,9 @@ export function* onSignOutStart() {
 }
 
 export function* userSagas() {
-  yield all([call(onCheckUserSession), call(onGoogleSignInStart)]);
+  yield all([
+    call(onCheckUserSession),
+    call(onGoogleSignInStart),
+    call(onSignOutStart),
+  ]);
 }
