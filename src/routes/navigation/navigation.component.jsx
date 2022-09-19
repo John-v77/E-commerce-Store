@@ -23,7 +23,7 @@ const Navigation = (props) => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
   const signOutUser = () => dispatch(signOutStart());
-  const greetingName = currentUser ? currentUser.data.email : null;
+  const greetingName = currentUser ? currentUser.data.displayName : null;
 
   return (
     <Fragment>
