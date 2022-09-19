@@ -72,7 +72,7 @@ function SignInForm(props) {
         />
 
         <FormInput
-          label='password'
+          label='Password'
           inputOptions={{
             type: 'password',
             onChange: handleChange,

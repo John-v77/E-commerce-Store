@@ -43,12 +43,13 @@ export function* signInWithGoogle() {
   }
 }
 
-export function* signWithEmail({ payload: { email, password } }) {
+export function* signWithEmail({ payload: { email, password, name } }) {
   try {
     const { user } = yield call(
       signInAuthUserWithEmailAndPassword,
       email,
-      password
+      password,
+      name
     );
     yield call(getSnapshotFromUserAuth, user);
   } catch (error) {
@@ -70,7 +71,8 @@ export function* signUp({ payload: { email, password, displayName } }) {
     const { user } = yield call(
       createAuthUserWithEmailAndPassword,
       email,
-      password
+      password,
+      displayName
     );
     yield put(signUpSuccess(user, { displayName }));
   } catch (error) {
