@@ -1,6 +1,6 @@
+import { selectCurrentUser } from '../../store/user/user.selector';
 import { useDispatch } from 'react-redux';
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
@@ -23,6 +23,7 @@ const defaultFormFields = {
 
 function SignInForm(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   const resetFormFields = () => {
@@ -45,6 +46,7 @@ function SignInForm(props) {
       )
         alert('incorrect email or password');
     }
+    if (selectCurrentUser) navigate('/');
   };
 
   const handleChange = (event) => {
