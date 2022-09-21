@@ -23,8 +23,6 @@ const Navigation = (props) => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
   const signOutUser = () => dispatch(signOutStart());
-  const greetingName =
-    currentUser && currentUser.data.email ? currentUser.data.email : null;
 
   return (
     <Fragment>
@@ -50,7 +48,7 @@ const Navigation = (props) => {
       <GreetUserContainer>
         {currentUser ? (
           <GreetUserContainerText>
-            Welcome {greetingName ? greetingName : 'Guest'}
+            Welcome {currentUser ? currentUser.data.displayName : 'Guest'}
           </GreetUserContainerText>
         ) : null}
       </GreetUserContainer>
