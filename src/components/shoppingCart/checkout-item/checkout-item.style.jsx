@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const RemoveButton = styled.div`
   padding-left: 12px;
   cursor: pointer;
+  width: 7.55%;
 `;
 
 export const Value = styled.span`
@@ -14,7 +15,7 @@ export const Arrow = styled.div`
 `;
 
 export const Name = styled.span`
-  width: 23%;
+  width: 18.5%;
 `;
 export const Quantity = styled(Name)`
   display: flex;
@@ -22,7 +23,7 @@ export const Quantity = styled(Name)`
 export const Price = styled(Name)``;
 
 export const ImageContainer = styled.div`
-  width: 23%;
+  width: 18.5%;
   padding-right: 15px;
 
   img {
