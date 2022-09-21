@@ -7,10 +7,11 @@ export const Preview = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const Title = styled.a`
-  font-size: 28px;
-  margin-bottom: 25px;
+export const Title = styled.h2`
+  font-size: 2.25rem;
+  margin-bottom: 2.5rem;
   cursor: pointer;
+  text-align: center;
 `;
 
 export const CategoryPreviewContainer = styled.div`
