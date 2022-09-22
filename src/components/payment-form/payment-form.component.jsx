@@ -4,7 +4,15 @@ import { useSelector } from 'react-redux';
 import { selectCartTotal } from '../../store/cart/cart.selector';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
-import { FormContainer, PaymentFormContainer } from './payment-form.styles';
+import {
+  FormContainer,
+  PaymentFormContainer,
+  FeaturedContainer,
+  FeaturedImg,
+  FeaturedDetails,
+  FeaturedBackground,
+  CardElementStyled,
+} from './payment-form.styles';
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -61,12 +69,46 @@ const PaymentForm = () => {
 
   return (
     <PaymentFormContainer>
+      <FeaturedContainer>
+        <FeaturedBackground></FeaturedBackground>
+        <FeaturedImg
+          // src='//unsplash.it/500/500'
+          src='https://i.pinimg.com/originals/18/9d/dc/189ddc1221d9c1c779dda4ad37a35fa1.png'
+        />
+        <FeaturedDetails>
+          <h2>Nike</h2>
+        </FeaturedDetails>
+      </FeaturedContainer>
       <FormContainer onSubmit={paymentHandler}>
-        <h1>Credit Cart Payment</h1>
-        <CardElement />
+        <h3>Credit Cart Payment</h3>
+
+        <input
+          type='text'
+          id='name'
+          name='name'
+          placeholder='Name'
+          required
+          minlength='4'
+          size='20'
+        ></input>
+
+        <CardElementStyled />
+
+        <input
+          type='text'
+          id='zipcode'
+          name='zipcode'
+          placeholder='Zipcode'
+          required
+          minlength='5'
+          maxlength='5'
+          size='5'
+        ></input>
+
         <Button
           disabled={isProcessingPayment}
           buttonType={BUTTON_TYPE_CLASSES.inverted}
+          width='5rem'
         >
           Pay now
         </Button>
