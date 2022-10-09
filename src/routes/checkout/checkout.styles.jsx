@@ -9,10 +9,10 @@ export const Total = styled.span`
 export const HeaderBlock = styled.div`
   text-transform: capitalize;
   font-weight: 600;
-  width: 23%;
+  width: 18.5%;
 
   &:last-child {
-    width: 8%;
+    width: 7.5%;
   }
 `;
 
@@ -26,6 +26,7 @@ export const CheckoutHeader = styled.div`
 
 export const CheckoutContainer = styled.div`
   width: 55%;
+  min-width: 38rem;
   min-height: 90vh;
   display: flex;
   flex-direction: column;

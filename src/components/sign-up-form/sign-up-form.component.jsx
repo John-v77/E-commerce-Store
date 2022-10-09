@@ -5,6 +5,8 @@ import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 
 import { SignUpContainer, NeedToSignIn } from './sign-up-form.style.jsx';
+import { useDispatch } from 'react-redux';
+import { signUpStart } from '../../store/user/user.actions.js';
 
 const SignUpForm = (props) => {
   const defaultformFields = {
@@ -14,9 +16,15 @@ const SignUpForm = (props) => {
     confirmPassword: '',
   };
 
+  const dispatch = useDispatch();
+
   //set form fields
   const [formFields, setFormFields] = useState(defaultformFields);
   const { displayName, email, password, confirmPassword } = formFields;
+
+  const resetFormFields = () => {
+    setFormFields(defaultformFields);
+  };
 
   const handeSubmit = async (event) => {
     event.preventDefault();
@@ -30,12 +38,8 @@ const SignUpForm = (props) => {
     // addiditional checks: password length, diversity, to build a robust password
 
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      // setCurrentUser(user);
+      dispatch(signUpStart(email, password, displayName));
+      resetFormFields();
     } catch (error) {
       console.log('user creation error', error);
     }

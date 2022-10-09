@@ -9,9 +9,9 @@ import {
 const CategoryPreview = ({ title, products }) => {
   return (
     <CategoryPreviewContainer>
-      <h2>
-        <Title to={title}>{title.toUpperCase()}</Title>
-      </h2>
+      <Title style={{ textAlign: 'center' }}>
+        <Link to={title}>{title.toUpperCase()}</Link>
+      </Title>
       <Preview>
         {products
           .filter((_, idx) => idx < 4)

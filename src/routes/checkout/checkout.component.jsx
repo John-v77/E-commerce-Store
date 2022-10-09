@@ -36,6 +36,10 @@ const Checkout = () => {
         </HeaderBlock>
 
         <HeaderBlock>
+          <span>Total</span>
+        </HeaderBlock>
+
+        <HeaderBlock>
           <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>

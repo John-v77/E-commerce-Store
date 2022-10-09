@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import {
@@ -11,7 +11,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "firebase/auth";
+} from 'firebase/auth';
 
 import {
   getFirestore,
@@ -22,16 +22,16 @@ import {
   writeBatch,
   query,
   getDocs,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBuQ7fuNHJf3NqGxLiDkggqSEyG2gzjsPE",
-  authDomain: "general-auth-db-app.firebaseapp.com",
-  projectId: "general-auth-db-app",
-  storageBucket: "general-auth-db-app.appspot.com",
-  messagingSenderId: "556876488378",
-  appId: "1:556876488378:web:83a3f7c51aa835e5422c83",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase
@@ -40,7 +40,7 @@ const app = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const auth = getAuth();
@@ -61,7 +61,7 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, "users", userAuth.uid);
+  const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -80,18 +80,27 @@ export const createUserDocumentFromAuth = async (
         ...addiditionalInformation,
       });
     } catch (error) {
-      console.log("error creating the user", error.message);
+      console.log('error creating the user', error.message);
     }
   }
 
   //if user data exists
-  return userDocRef;
+  return userSnapshot;
 };
 
 // #2 createUserWithEmailAndPassword
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
-  return await createUserWithEmailAndPassword(auth, email, password);
+export const createAuthUserWithEmailAndPassword = async (
+  email,
+  password,
+  displayName
+) => {
+  if (!email || !password || !displayName) return;
+  return await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password,
+    displayName
+  );
 };
 
 // #3 signInAuthUserWithEmailAndPassword
@@ -106,11 +115,24 @@ export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback);
 };
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
+
 // #4 Add Colection and Documents
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd,
-  field = "title"
+  field = 'title'
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -121,14 +143,14 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("done");
+  console.log('done');
 };
 
 export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, "categories");
+  const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-    
-  return querySnapshot.docs.map(docSnapShot =>  docSnapShot.data())
-  };
+
+  return querySnapshot.docs.map((docSnapShot) => docSnapShot.data());
+};

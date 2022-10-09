@@ -1,10 +1,6 @@
-import {
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase.utils';
-
-import { Link } from 'react-router-dom';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
@@ -15,6 +11,10 @@ import {
   NeedToSignUp,
   SignInContainer,
 } from './sign-in-form.style.jsx';
+import {
+  emailSignInStart,
+  googleSignInStart,
+} from '../../store/user/user.actions';
 
 const defaultFormFields = {
   email: '',
@@ -22,27 +22,22 @@ const defaultFormFields = {
 };
 
 function SignInForm(props) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async (event) => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    dispatch(googleSignInStart());
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
       if (
@@ -51,6 +46,7 @@ function SignInForm(props) {
       )
         alert('incorrect email or password');
     }
+    if (selectCurrentUser) navigate('/');
   };
 
   const handleChange = (event) => {
@@ -76,7 +72,7 @@ function SignInForm(props) {
         />
 
         <FormInput
-          label='password'
+          label='Password'
           inputOptions={{
             type: 'password',
             onChange: handleChange,

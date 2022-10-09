@@ -14,15 +14,34 @@ export const NavLinksContainer = styled.div`
   justify-content: flex-end;
 `;
 
+export const GreetUserContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const GreetUserContainerText = styled.p`
+  color: blue;
+  margin-top: 0;
+  margin-right: 0.8rem;
+`;
+
 export const LogoContainer = styled(Link)`
   height: 100%;
-  width: 70px;
-  padding: 1rem;
+  width: 370px;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const LogoText = styled.h2`
+  height: 100%;
+  font-size: 2rem;
 `;
 
 export const NavigationContainer = styled.div`
-  height: 70px;
+  height: 50px;
   width: 100%;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
