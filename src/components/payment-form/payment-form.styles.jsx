@@ -5,9 +5,16 @@ export const FeaturedBackground = styled.div`
   background-color: #0d030b;
   border-radius: 50%;
   height: 170%;
-  width: 120%;
+  width: 130%;
   top: -34%;
-  left: -20%;
+  left: -30%;
+  position: relative;
+`;
+
+export const FixAntiAliasing = styled.div`
+  background-color: #0d030b;
+  width: 100%;
+  height: 100%
   position: relative;
 `;
 
@@ -85,7 +92,7 @@ export const CardElementStyled = styled(CardElement)`
 `;
 
 export const PaymentFormContainer = styled.div`
-  /* background: beige; */
+  background: #EBEBEB;
   width: 100%;
   height: 20.75rem;
   display: flex;
@@ -93,5 +100,5 @@ export const PaymentFormContainer = styled.div`
   overflow: hidden;
   margin: 4rem 0;
   border-radius: 5px;
-  border: 2px solid black;
+  // border: 2px solid black;
 `;

@@ -107,7 +107,7 @@ const PaymentForm = () => {
 
         <Button
           disabled={isProcessingPayment}
-          buttonType={BUTTON_TYPE_CLASSES.inverted}
+          buttonType={BUTTON_TYPE_CLASSES.invertedPay}
           width='5rem'
         >
           Pay now
