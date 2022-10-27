@@ -49,6 +49,18 @@ export const InvertedButton = styled(BaseButton)`
   }
 `;
 
+export const InvertedButtonPay = styled(BaseButton)`
+  background-color:  #EBEBEB;
+  color: black;
+  border: 1px solid black;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    border: none;
+  }
+`;
+
 export const ButtonSpinner = styled(SpinnerContainer)`
   width: 1.75rem;
   height: 1.75rem;
