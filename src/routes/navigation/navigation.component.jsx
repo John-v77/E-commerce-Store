@@ -28,12 +28,12 @@ const Navigation = (props) => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <CrwnLogo className='logo' />
+          <CrwnLogo data-testid="logo" />
           <LogoText>BCOOL</LogoText>
         </LogoContainer>
 
         <NavLinksContainer>
-          <NavLink to='/shop'>SHOP</NavLink>
+          <NavLink to='/shop' data-testid="shop-link">SHOP</NavLink>
           {currentUser ? (
             <NavLink as='span' onClick={signOutUser}>
               SIGN OUT
