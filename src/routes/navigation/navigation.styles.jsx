@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1.25rem;
 `;
 
 export const NavLinksContainer = styled.div`
