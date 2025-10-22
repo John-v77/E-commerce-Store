@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Directory Component matches snapshot 1`] = `
+<div
+  class="sc-hKMtZM iKOfmT"
+>
+  <div
+    class="sc-dkzDqf booHWC"
+  >
+    <div
+      class="sc-bczRLJ enGQty"
+    />
+    <div
+      class="sc-gsnTZi iXBACK"
+    >
+      <h2>
+        hats
+      </h2>
+      <p>
+        Shop Now
+      </p>
+    </div>
+  </div>
+  <div
+    class="sc-dkzDqf booHWC"
+  >
+    <div
+      class="sc-bczRLJ hqcIsC"
+    />
+    <div
+      class="sc-gsnTZi iXBACK"
+    >
+      <h2>
+        jackets
+      </h2>
+      <p>
+        Shop Now
+      </p>
+    </div>
+  </div>
+  <div
+    class="sc-dkzDqf booHWC"
+  >
+    <div
+      class="sc-bczRLJ bYbDlx"
+    />
+    <div
+      class="sc-gsnTZi iXBACK"
+    >
+      <h2>
+        shoes
+      </h2>
+      <p>
+        Shop Now
+      </p>
+    </div>
+  </div>
+  <div
+    class="sc-dkzDqf booHWC"
+  >
+    <div
+      class="sc-bczRLJ jbvlOZ"
+    />
+    <div
+      class="sc-gsnTZi iXBACK"
+    >
+      <h2>
+        womens
+      </h2>
+      <p>
+        Shop Now
+      </p>
+    </div>
+  </div>
+  <div
+    class="sc-dkzDqf booHWC"
+  >
+    <div
+      class="sc-bczRLJ jYSXyS"
+    />
+    <div
+      class="sc-gsnTZi iXBACK"
+    >
+      <h2>
+        mens
+      </h2>
+      <p>
+        Shop Now
+      </p>
+    </div>
+  </div>
+</div>
+`;
